@@ -11,7 +11,7 @@ Custom service /Random requests `float32 min` and `float32 max` interval values 
 The node `/motion_controller` is subscribed to `/odom` topic, which publishes the robot's current coordinates. The callback function compares these coordinates to the random assigned target and calls the service server `/target` to get a new target if the difference is below a threshold of 0.1, otherwise the appropriate linear velocities for x and y are calculated and in turn published to the topic `/cmd_vel`.
 
 ## Nodes Graph
-![](rosgraph.png)
+![](docs/rosgraph.png)
 
 ## How to run
 
