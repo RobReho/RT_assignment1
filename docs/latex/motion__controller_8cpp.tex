@@ -1,0 +1,88 @@
+\hypertarget{motion__controller_8cpp}{}\section{src/motion\+\_\+controller.cpp File Reference}
+\label{motion__controller_8cpp}\index{src/motion\+\_\+controller.\+cpp@{src/motion\+\_\+controller.\+cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Twist.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}nav\+\_\+msgs/\+Odometry.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}motion\+\_\+controller/\+Random.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}math.\+h\char`\"{}}\\*
+Include dependency graph for motion\+\_\+controller.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{motion__controller_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcoord}{coord}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{motion__controller_8cpp_a92ac017207defd4cbfa24eefe0c6236e}{threshold}~0.\+1
+\item 
+\#define \hyperlink{motion__controller_8cpp_a13b230ea1d237595fb236c951a0849e0}{k}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motion__controller_8cpp_aab6e381bffc34921244a29ec0538ba64}{position\+Callback} (const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&msg)
+\item 
+int \hyperlink{motion__controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcoord}{coord} \hyperlink{motion__controller_8cpp_a74e01c21daa2619ee6ab2d3b98dd7e09}{targ}
+\item 
+ros\+::\+Publisher \hyperlink{motion__controller_8cpp_a350594df3e8f6948c8462edfd41ce086}{pub}
+\item 
+ros\+::\+Service\+Client \hyperlink{motion__controller_8cpp_a17bcd065930a8a7f9f194078d9977268}{client}
+\item 
+motion\+\_\+controller\+::\+Random \hyperlink{motion__controller_8cpp_ae5e0991bd90659a6d5d475ad208a5d9c}{trg}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!k@{k}}
+\index{k@{k}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{k}{k}}]{\setlength{\rightskip}{0pt plus 5cm}\#define k~1}\hypertarget{motion__controller_8cpp_a13b230ea1d237595fb236c951a0849e0}{}\label{motion__controller_8cpp_a13b230ea1d237595fb236c951a0849e0}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!threshold@{threshold}}
+\index{threshold@{threshold}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{threshold}{threshold}}]{\setlength{\rightskip}{0pt plus 5cm}\#define threshold~0.\+1}\hypertarget{motion__controller_8cpp_a92ac017207defd4cbfa24eefe0c6236e}{}\label{motion__controller_8cpp_a92ac017207defd4cbfa24eefe0c6236e}
+
+
+\subsection{Function Documentation}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!main@{main}}
+\index{main@{main}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{motion__controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{motion__controller_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!position\+Callback@{position\+Callback}}
+\index{position\+Callback@{position\+Callback}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{position\+Callback(const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&msg)}{positionCallback(const nav_msgs::Odometry::ConstPtr &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void position\+Callback (
+\begin{DoxyParamCaption}
+\item[{const nav\+\_\+msgs\+::\+Odometry\+::\+Const\+Ptr \&}]{msg}
+\end{DoxyParamCaption}
+)}\hypertarget{motion__controller_8cpp_aab6e381bffc34921244a29ec0538ba64}{}\label{motion__controller_8cpp_aab6e381bffc34921244a29ec0538ba64}
+The callback function compares the current coordinates published by /odom with nav\+\_\+msgs\+::\+Odometry message type to the target coordinates stored in the struct coord. If the difference is less than the threshold the server /target is called and new target coordinates as stored in targ.\+x and targ.\+y. Otherwise it is calculated the linear velocity to publish on /cmd\+\_\+vel in function of the current position.
+
+N.\+B. In the firs cycle the robot\textquotesingle{}s current position is (0,0) and the target coordinates variables are also initialized as x=0 and y=0, so the first iteration will call the /target service. 
+
+\subsection{Variable Documentation}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!client@{client}}
+\index{client@{client}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{client}{client}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Service\+Client client}\hypertarget{motion__controller_8cpp_a17bcd065930a8a7f9f194078d9977268}{}\label{motion__controller_8cpp_a17bcd065930a8a7f9f194078d9977268}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!pub@{pub}}
+\index{pub@{pub}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{pub}{pub}}]{\setlength{\rightskip}{0pt plus 5cm}ros\+::\+Publisher pub}\hypertarget{motion__controller_8cpp_a350594df3e8f6948c8462edfd41ce086}{}\label{motion__controller_8cpp_a350594df3e8f6948c8462edfd41ce086}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!targ@{targ}}
+\index{targ@{targ}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{targ}{targ}}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf coord}  targ}\hypertarget{motion__controller_8cpp_a74e01c21daa2619ee6ab2d3b98dd7e09}{}\label{motion__controller_8cpp_a74e01c21daa2619ee6ab2d3b98dd7e09}
+\index{motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}!trg@{trg}}
+\index{trg@{trg}!motion\+\_\+controller.\+cpp@{motion\+\_\+controller.\+cpp}}
+\subsubsection[{\texorpdfstring{trg}{trg}}]{\setlength{\rightskip}{0pt plus 5cm}motion\+\_\+controller\+::\+Random trg}\hypertarget{motion__controller_8cpp_ae5e0991bd90659a6d5d475ad208a5d9c}{}\label{motion__controller_8cpp_ae5e0991bd90659a6d5d475ad208a5d9c}

@@ -1,0 +1,48 @@
+\hypertarget{target__service_8cpp}{}\section{src/target\+\_\+service.cpp File Reference}
+\label{target__service_8cpp}\index{src/target\+\_\+service.\+cpp@{src/target\+\_\+service.\+cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}motion\+\_\+controller/\+Random.\+h\char`\"{}}\\*
+Include dependency graph for target\+\_\+service.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{target__service_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{target__service_8cpp_a10f83119b77a8fbd085a5550955f85ff}{rand\+M\+ToN} (double M, double N)
+\item 
+bool \hyperlink{target__service_8cpp_a5daf14ef7a24a03f723910e5b3970361}{Callback} (motion\+\_\+controller\+::\+Random\+::\+Request \&req, motion\+\_\+controller\+::\+Random\+::\+Response \&res)
+\item 
+int \hyperlink{target__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{target\+\_\+service.\+cpp@{target\+\_\+service.\+cpp}!Callback@{Callback}}
+\index{Callback@{Callback}!target\+\_\+service.\+cpp@{target\+\_\+service.\+cpp}}
+\subsubsection[{\texorpdfstring{Callback(motion\+\_\+controller\+::\+Random\+::\+Request \&req, motion\+\_\+controller\+::\+Random\+::\+Response \&res)}{Callback(motion_controller::Random::Request &req, motion_controller::Random::Response &res)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Callback (
+\begin{DoxyParamCaption}
+\item[{motion\+\_\+controller\+::\+Random\+::\+Request \&}]{req, }
+\item[{motion\+\_\+controller\+::\+Random\+::\+Response \&}]{res}
+\end{DoxyParamCaption}
+)}\hypertarget{target__service_8cpp_a5daf14ef7a24a03f723910e5b3970361}{}\label{target__service_8cpp_a5daf14ef7a24a03f723910e5b3970361}
+The callback funtion assigns a random value to the variables x and y between the values min and max every time the service server /target is called. \index{target\+\_\+service.\+cpp@{target\+\_\+service.\+cpp}!main@{main}}
+\index{main@{main}!target\+\_\+service.\+cpp@{target\+\_\+service.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{target__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{target__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+\index{target\+\_\+service.\+cpp@{target\+\_\+service.\+cpp}!rand\+M\+ToN@{rand\+M\+ToN}}
+\index{rand\+M\+ToN@{rand\+M\+ToN}!target\+\_\+service.\+cpp@{target\+\_\+service.\+cpp}}
+\subsubsection[{\texorpdfstring{rand\+M\+To\+N(double M, double N)}{randMToN(double M, double N)}}]{\setlength{\rightskip}{0pt plus 5cm}double rand\+M\+ToN (
+\begin{DoxyParamCaption}
+\item[{double}]{M, }
+\item[{double}]{N}
+\end{DoxyParamCaption}
+)}\hypertarget{target__service_8cpp_a10f83119b77a8fbd085a5550955f85ff}{}\label{target__service_8cpp_a10f83119b77a8fbd085a5550955f85ff}
+Function that returns a random value between M and N M\+: minimum value N\+: maximum value 
