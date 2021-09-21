@@ -18,12 +18,12 @@ The node `/motion_controller` is subscribed to `/odom` topic, which publishes th
 download this folder in your working space:
 
 ```sh
-git clone kghyfnytfn
+git clone https://github.com/RobReho/RT_assignment1.git
 ```
 build it with `catkin_make`, then run the following nodes:
 
 ```sh
-rosrun stage_ros stageros $(rospack find assignment1)/wor/exercise.world
+rosrun stage_ros stageros $(rospack find assignment1)/world/exercise.world
 rosrun motion_controller target_service 
 rosrun motion_controller motion_controller 
 ```
